@@ -1,7 +1,7 @@
 # manningalgowithgo
 Manning Six Small Algorithm Projects with Go Live Project beta test
 
-To run:
+To run bubblesort:
 
 ```
 $ go run sources/bubblesort/main.go
