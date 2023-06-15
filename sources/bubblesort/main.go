@@ -50,7 +50,7 @@ func check_sorted(arr []int) {
 // Actually sort the array
 func bubblesort(arr []int) {
 	for i := 0; i < len(arr); i++ {
-		for j := i; j < len(arr); j++ {
+		for j := i + 1; j < len(arr); j++ {
 			//if ith element is larger than jth, swap them.
 			if arr[i] > arr[j] {
 				arr[i], arr[j] = arr[j], arr[i]
@@ -59,13 +59,48 @@ func bubblesort(arr []int) {
 	}
 }
 
+func quicksort(arr []int, low int, high int) {
+	if low < high {
+		pi := partitionLomuto(arr, low, high)
+		quicksort(arr, low, pi-1)
+		quicksort(arr, pi+1, high)
+	}
+}
+
+func partitionHoare(arr []int, low int, high int) int {
+	pivot := arr[high]
+	i := low - 1
+	for j := low; j < high; j++ {
+		if arr[j] <= pivot {
+			i++
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+	}
+	arr[i+1], arr[high] = arr[high], arr[i+1]
+	return i + 1
+}
+
+func partitionLomuto(arr []int, low int, high int) int {
+	pivot := arr[high]
+	i := low - 1
+	for j := low; j < high; j++ {
+		if arr[j] <= pivot {
+			i++
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+	}
+	arr[i+1], arr[high] = arr[high], arr[i+1]
+	return i + 1
+}
+
 func main() {
-	rand.Seed(time.Now().UnixNano())
+	rand.NewSource(time.Now().UnixNano())
 	fmt.Println("Hello World")
-	ar1 := make_random_array(20000, 500000)
+	// ar1 := make_fixed_array()
+	ar1 := make_random_array(15, 500)
 	print_array(ar1, 20)
 	check_sorted(ar1)
-	bubblesort(ar1)
+	quicksort(ar1, 0, len(ar1)-1)
 	print_array(ar1, 30)
 	check_sorted(ar1)
 }
