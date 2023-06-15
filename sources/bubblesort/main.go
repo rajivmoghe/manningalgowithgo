@@ -94,7 +94,7 @@ func partitionLomuto(arr []int, low int, high int) int {
 }
 
 func main() {
-	rand.NewSource(time.Now().UnixNano())
+	rand.NewSource(time.Now().UnixNano()) // rand.Seed(time.Now().UnixNano())
 	fmt.Println("Hello World")
 	// ar1 := make_fixed_array()
 	ar1 := make_random_array(15, 500)
