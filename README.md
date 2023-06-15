@@ -4,7 +4,7 @@ Manning Six Small Algorithm Projects with Go Live Project beta test
 To run bubblesort:
 
 ```
-$ go run sources/bubblesort/main.go
+$ go run sources/sorting/*.go
 ```
 
 Lessons to complete:
