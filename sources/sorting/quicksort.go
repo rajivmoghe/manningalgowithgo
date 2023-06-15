@@ -1,10 +1,14 @@
 package main
 
-func quicksort(arr []int, low int, high int) {
+func quicksort(arr []int) {
+	quicksort_0(arr, 0, len(arr)-1)
+}
+
+func quicksort_0(arr []int, low int, high int) {
 	if low < high {
 		pi := partitionLomuto(arr, low, high)
-		quicksort(arr, low, pi-1)
-		quicksort(arr, pi+1, high)
+		quicksort_0(arr, low, pi-1)
+		quicksort_0(arr, pi+1, high)
 	}
 }
 
