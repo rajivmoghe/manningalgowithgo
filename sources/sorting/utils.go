@@ -8,12 +8,18 @@ import (
 
 // Make a fixed array for testing
 func make_fixed_array() []int {
-	arr := make([]int, 5)
-	arr[0] = 4
-	arr[1] = 1
-	arr[2] = 2
-	arr[3] = 0
-	arr[4] = 4
+	arr := make([]int, 11)
+	arr[0] = 42
+	arr[1] = 17
+	arr[2] = 23
+	arr[3] = 70
+	arr[4] = 34
+	arr[5] = 85
+	arr[6] = 44
+	arr[7] = 12
+	arr[8] = 65
+	arr[9] = 83
+	arr[10] = 45
 	return arr
 }
 
