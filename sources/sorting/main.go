@@ -46,28 +46,6 @@ func binarysearch() {
 			fmt.Printf("arr[%d] = %d, %d tests\n", index, ar1[index], num_tests)
 		}
 	}
-
-	// idxat, checks := binary_search(ar1, 34)
-	// fmt.Println("Searching for 34, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 73)
-	// fmt.Println("Searching for 73, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 85)
-	// fmt.Println("Searching for 85, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 23)
-	// fmt.Println("Searching for 23, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 42)
-	// fmt.Println("Searching for 42, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 65)
-	// fmt.Println("Searching for 65, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 44)
-	// fmt.Println("Searching for 44, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 12)
-	// fmt.Println("Searching for 12, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 17)
-	// fmt.Println("Searching for 17, search idx:", idxat, "\b; num compares:", checks)
-	// idxat, checks = binary_search(ar1, 70)
-	// fmt.Println("Searching for 70, search idx:", idxat, "\b; num compares:", checks)
-
 }
 
 func linearsearch() {
