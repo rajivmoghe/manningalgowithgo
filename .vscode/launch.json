@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "sources/sorting/",
+            "program": "sources/datastructures/",
             "args": [],
             "cwd": "${fileDirname}"
         },
@@ -19,7 +19,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "sources/sorting/",
-            "args": ["20", "500", "15", "350", ""],
+            "args": [],
             "cwd": "${fileDirname}"
         },
         {
