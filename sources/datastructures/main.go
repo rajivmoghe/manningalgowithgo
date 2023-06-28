@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	list_loops()
+	double_list()
+	// fmt.Println("Trying DLL")
 }
 
 func list_main() {
@@ -69,4 +70,52 @@ func list_loops() {
 	} else {
 		fmt.Println("No loop z")
 	}
+}
+
+func double_list() {
+	// small_dl_list_test()
+	// dll := make_doubly_linked_list()
+	// animals := []string{
+	// 	"Ant",
+	// 	"Bat",
+	// 	"Cat",
+	// 	"Dog",
+	// 	"Elk",
+	// 	"Fox",
+	// }
+	// dll.add_range(animals)
+	// fmt.Println(dll.to_string(" "))
+
+	// Test queue functions.
+	fmt.Printf("*** Queue Functions ***\n")
+	queue := make_doubly_linked_list()
+	queue.enqueue("Agate")
+	queue.enqueue("Beryl")
+	fmt.Printf("%s ", queue.dequeue())
+	queue.enqueue("Citrine")
+	fmt.Printf("%s ", queue.dequeue())
+	fmt.Printf("%s ", queue.dequeue())
+	queue.enqueue("Diamond")
+	queue.enqueue("Emerald")
+	for !queue.is_empty() {
+		fmt.Printf("%s ", queue.dequeue())
+	}
+	fmt.Printf("\n\n")
+
+	// Test deque functions. Names starting
+    // with F have a fast pass.
+    fmt.Printf("*** Deque Functions ***\n")
+    deque := make_doubly_linked_list()
+    deque.push_top("Ann")
+    deque.push_top("Ben")
+    fmt.Printf("%s ", deque.pop_bottom())
+    deque.push_bottom("F-Cat")
+    fmt.Printf("%s ", deque.pop_bottom())
+    fmt.Printf("%s ", deque.pop_bottom())
+    deque.push_bottom("F-Dan")
+    deque.push_top("Eva")
+    for !deque.is_empty() {
+        fmt.Printf("%s ", deque.pop_bottom())
+    }
+    fmt.Printf("\n")
 }

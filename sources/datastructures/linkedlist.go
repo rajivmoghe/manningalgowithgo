@@ -5,18 +5,9 @@ import (
 	"strings"
 )
 
-type Cell struct {
-	data string
-	next *Cell
-}
-
-type LinkedList struct {
-	sentinel *Cell
-}
-
 // Build a small linked list one cell at a time.
 func small_list_test() {
-	a_cell := Cell{"Apple", nil}
+	a_cell := Cell{data: "Apple"}
 	b_cell := Cell{data: "Banana"}
 	a_cell.next = &b_cell
 	top := &a_cell
@@ -47,7 +38,7 @@ func (me *Cell) delete_after() *Cell {
 // Make a new LinkedList and initialize its sentinel.
 func make_linked_list() LinkedList {
 	list := LinkedList{}
-	list.sentinel = &Cell{"SENTINEL", nil}
+	list.sentinel = &Cell{data: "SENTINEL"}
 	return list
 }
 
