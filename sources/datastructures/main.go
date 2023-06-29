@@ -3,8 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	double_list()
-	// fmt.Println("Trying DLL")
+	trees()
 }
 
 func list_main() {
@@ -73,18 +72,18 @@ func list_loops() {
 }
 
 func double_list() {
-	// small_dl_list_test()
-	// dll := make_doubly_linked_list()
-	// animals := []string{
-	// 	"Ant",
-	// 	"Bat",
-	// 	"Cat",
-	// 	"Dog",
-	// 	"Elk",
-	// 	"Fox",
-	// }
-	// dll.add_range(animals)
-	// fmt.Println(dll.to_string(" "))
+	small_dl_list_test()
+	dll := make_doubly_linked_list()
+	animals := []string{
+		"Ant",
+		"Bat",
+		"Cat",
+		"Dog",
+		"Elk",
+		"Fox",
+	}
+	dll.add_range(animals)
+	fmt.Println(dll.to_string(" "))
 
 	// Test queue functions.
 	fmt.Printf("*** Queue Functions ***\n")
@@ -103,19 +102,32 @@ func double_list() {
 	fmt.Printf("\n\n")
 
 	// Test deque functions. Names starting
-    // with F have a fast pass.
-    fmt.Printf("*** Deque Functions ***\n")
-    deque := make_doubly_linked_list()
-    deque.push_top("Ann")
-    deque.push_top("Ben")
-    fmt.Printf("%s ", deque.pop_bottom())
-    deque.push_bottom("F-Cat")
-    fmt.Printf("%s ", deque.pop_bottom())
-    fmt.Printf("%s ", deque.pop_bottom())
-    deque.push_bottom("F-Dan")
-    deque.push_top("Eva")
-    for !deque.is_empty() {
-        fmt.Printf("%s ", deque.pop_bottom())
-    }
-    fmt.Printf("\n")
+	// with F have a fast pass.
+	fmt.Printf("*** Deque Functions ***\n")
+	deque := make_doubly_linked_list()
+	deque.push_top("Ann")
+	deque.push_top("Ben")
+	fmt.Printf("%s ", deque.pop_bottom())
+	deque.push_bottom("F-Cat")
+	fmt.Printf("%s ", deque.pop_bottom())
+	fmt.Printf("%s ", deque.pop_bottom())
+	deque.push_bottom("F-Dan")
+	deque.push_top("Eva")
+	for !deque.is_empty() {
+		fmt.Printf("%s ", deque.pop_bottom())
+	}
+	fmt.Printf("\n")
+}
+
+func trees() {
+	// Build a tree.
+	a_node := build_tree()
+
+	// Display with indentation.
+	fmt.Println(a_node.display_indented("  ", 0))
+
+	fmt.Printf("Preorder:     .%s.\n", a_node.preorder())
+	fmt.Printf("Inorder:      .%s.\n", a_node.inorder())
+	fmt.Printf("Postorder:    .%s.\n", a_node.postorder())
+	fmt.Println("Breadth first:", a_node.breadth_first())
 }
