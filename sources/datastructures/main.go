@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	trees()
+	sorted_tree()
 }
 
 func list_main() {
@@ -130,4 +130,45 @@ func trees() {
 	fmt.Printf("Inorder:      .%s.\n", a_node.inorder())
 	fmt.Printf("Postorder:    .%s.\n", a_node.postorder())
 	fmt.Println("Breadth first:", a_node.breadth_first())
+}
+
+func sorted_tree() {
+	// Make a root node to act as sentinel.
+	root := Node{"", nil, nil}
+
+	// Add some values.
+	root.insert_value("I")
+	root.insert_value("G")
+	root.insert_value("C")
+	root.insert_value("E")
+	root.insert_value("B")
+	root.insert_value("K")
+	root.insert_value("S")
+	root.insert_value("Q")
+	root.insert_value("M")
+
+	// Add F.
+	root.insert_value("F")
+
+	// Display the values in sorted order.
+	fmt.Printf("Sorted values: %s\n", root.right.inorder())
+
+	// Let the user search for values.
+	for {
+		// Get the target value.
+		target := ""
+		fmt.Printf("String: ")
+		fmt.Scanln(&target)
+		if len(target) == 0 {
+			break
+		}
+
+		//Find the value's node.
+		node := root.find_value(target)
+		if node == nil {
+			fmt.Printf("%s not found\n", target)
+		} else {
+			fmt.Printf("Found value %s\n", target)
+		}
+	}
 }
