@@ -15,3 +15,11 @@ Lessons to complete:
     3. [x] Doubly-Linked Lists
     4. [x] Trees
     5. [x] Sorted Binary Trees
+3. Problem Solving with Recursion
+    1. [x] Factorials
+    2. [ ] Fibonacci Numbers
+    3. [ ] Dynamic Fibonacci Numbers
+    4. [ ] The Knights Tour
+    5. [ ] The N Queens Problem
+    6. [ ] The N Queens Problem, Redux
+    7. [ ] The Tower of Hanoi
