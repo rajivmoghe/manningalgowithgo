@@ -10,8 +10,8 @@ Lessons to complete:
     4. [x] Linear Search
     5. [x] Binary Search
 2. Linked Data Structures
-    1. [ ] Singly Linked Lists
-    2. [ ] Loops
-    3. [ ] Doubly-Linked Lists
-    4. [ ] Trees
-    5. [ ] Sorted Binary Trees
+    1. [x] Singly Linked Lists
+    2. [x] Loops
+    3. [x] Doubly-Linked Lists
+    4. [x] Trees
+    5. [x] Sorted Binary Trees
