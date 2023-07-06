@@ -5,6 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch Recursion",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "sources/recursion/",
+            "args": [],
+            "cwd": "${fileDirname}",
+            "console": "externalTerminal"
+        },
+        {
             "name": "Launch Lists",
             "type": "go",
             "request": "launch",
