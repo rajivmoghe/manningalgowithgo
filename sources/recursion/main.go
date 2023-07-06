@@ -6,7 +6,9 @@ import (
 )
 
 func main() {
-	run_fibonacci_on_the_fly()
+	fmt.Println("initializing slice")
+	initialize_slice()
+	run_fibonacci_prefilled()
 }
 
 func run_factorial() {
@@ -35,7 +37,7 @@ func run_fibonacci() {
 	}
 }
 
-func run_fibonacci_on_the_fly(){
+func run_fibonacci_on_the_fly() {
 	for {
 		// Get n as a string.
 		var n_string string
@@ -50,5 +52,23 @@ func run_fibonacci_on_the_fly(){
 		// Convert to int and calculate the Fibonacci number.
 		n, _ := strconv.ParseInt(n_string, 10, 64)
 		fmt.Printf("fibonacci_on_the_fly(%d) = %d\n", n, fibonacci_on_the_fly(n))
+	}
+}
+
+func run_fibonacci_prefilled() {
+	for {
+		// Get n as a string.
+		var n_string string
+		fmt.Printf("N: ")
+		fmt.Scanln(&n_string)
+
+		// If the n string is blank, break out of the loop.
+		if len(n_string) == 0 {
+			break
+		}
+
+		// Convert to int and calculate the Fibonacci number.
+		n, _ := strconv.ParseInt(n_string, 10, 64)
+		fmt.Printf("fibonacci_prefilled(%d) = %d\n", n, fibonacci_prefilled(n))
 	}
 }
