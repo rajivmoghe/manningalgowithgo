@@ -12,7 +12,7 @@
             "program": "sources/recursion/",
             "args": [],
             "cwd": "${fileDirname}",
-            "console": "externalTerminal"
+            "console": "internalConsole"
         },
         {
             "name": "Launch Lists",
