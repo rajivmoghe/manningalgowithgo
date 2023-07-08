@@ -159,18 +159,18 @@ func place_queens_1(board [][]string, num_rows, r, c int) bool {
 // Try placing a queen at position [r][c].
 // Return true if we find a legal board.
 func place_queens_2(board [][]string, num_rows, r, c, num_placed int) bool {
+	if num_placed > num_rows {
+		fmt.Printf("Number of queens (%d) for rows (%d). Returning false.\n", num_placed, num_rows)
+		return false
+	}
 	if r >= num_rows {
-		if num_placed > num_rows {
-			// fmt.Printf("Number of queens (%d) for rows (%d). Returning false.\n", num_placed, num_rows)
-			return false
+		found := board_is_a_solution(board, num_rows)
+		if !found {
+			fmt.Println("Foll is Not a solution")
+		} else {
+			fmt.Println("Foll is valid solution")
 		}
-		// found := board_is_a_solution(board, num_rows)
-		// if !found {
-		// 	fmt.Println("Foll is Not a solution")
-		// } else {
-		// 	fmt.Println("Foll is valid solution")
-		// }
-		// dump_chess_board(board)
+		dump_chess_board(board)
 		return board_is_a_solution(board, num_rows)
 	}
 
@@ -195,25 +195,117 @@ func place_queens_2(board [][]string, num_rows, r, c, num_placed int) bool {
 	return false
 }
 
+// Add amount to the attack counts for this square.
+func adjust_attack_counts(num_attacking [][]int, num_rows, r, c, amount int) {
+	
+	// adjust rows and cols
+	for row := 0; row < num_rows; row++ {
+		num_attacking[row][c] += amount
+	}
+	for col := 0; col < num_rows; col++ {
+		num_attacking[r][col] += amount
+	}
+
+	// adjust both diagonals
+	// up + left
+	row, col := r, c
+	for {
+		row--
+		col--
+		if row >= 0 && col >= 0 {
+			num_attacking[row][col] += amount
+		} else {
+			break
+		}
+	}
+
+	// up + right
+	row, col = r, c
+	for {
+		row--
+		col++
+		if row >= 0 && col < num_rows {
+			num_attacking[row][col] += amount
+		} else {
+			break
+		}
+	}
+
+	// down + left
+	row, col = r, c
+	for {
+		row++
+		col--
+		if row < num_rows && col > 0 {
+			num_attacking[row][col] += amount
+		} else {
+			break
+		}
+	}
+
+	// down + right
+	row, col = r, c
+	for {
+		row++
+		col++
+		if row < num_rows && col < num_rows {
+			num_attacking[row][col] += amount
+		} else {
+			break
+		}
+	}
+}
+
 // Set up and call place_queens_3.
 func place_queens_3(board [][]string, num_rows, num_placed, r, c int) bool {
-    // Make the num_attacking array.
-    // The value num_attacking[r][c] is the number
-    // of queens that can attack square (r, c).
-    num_cols := num_rows
-    num_attacking := make([][]int, num_rows)
-    for r := range board {
-        num_attacking[r] = make([]int, num_cols)
-    }
+	// Make the num_attacking array.
+	// The value num_attacking[r][c] is the number
+	// of queens that can attack square (r, c).
+	num_cols := num_rows
+	num_attacking := make([][]int, num_rows)
+	for r := range board {
+		num_attacking[r] = make([]int, num_cols)
+	}
+	// Call do_place_queens_3.
+	result := do_place_queens_3(board, num_rows, num_placed, 0, 0, num_attacking)
+	fmt.Println(num_attacking)
 
-    // Call do_place_queens_3.
-    return do_place_queens_3(board, num_rows, num_placed, 0, 0, num_attacking)
+	return result
 }
 
 // Try placing a queen at position [r][c].
 // Keep track of the number of queens placed.
 // Keep running totals of the number of queens attacking a square.
 // Return true if we find a legal board.
-func do_place_queens_3(board [][]string, num_rows, num_placed, r, c int, num_attacking [][]int) bool {
-    return false
+func do_place_queens_3(board [][]string, num_rows, r, c, num_placed int, num_attacking [][]int) bool {
+	if num_placed > num_rows {
+		return board_is_a_solution(board, num_rows)
+	}
+	if r >= num_rows {
+		return board_is_a_solution(board, num_rows)
+	}
+
+	// Find the next square.
+	next_r := r
+	next_c := c + 1
+	if next_c >= num_rows {
+		next_r += 1
+		next_c = 0
+	}
+
+	if do_place_queens_3(board, num_rows, next_r, next_c, num_placed, num_attacking) {
+		return true
+	}
+
+	if num_attacking[r][c] == 0 {
+		board[r][c] = "Q"
+		adjust_attack_counts(num_attacking, num_rows, r, c, +1)
+		if do_place_queens_3(board, num_rows, next_r, next_c, num_placed+1, num_attacking) {
+			return true
+		}
+		board[r][c] = "."
+		adjust_attack_counts(num_attacking, num_rows, r, c, -1)
+	}
+
+	return false
 }

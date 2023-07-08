@@ -20,6 +20,6 @@ Lessons to complete:
     2. [x] Fibonacci Numbers
     3. [x] Dynamic Fibonacci Numbers
     4. [x] The Knights Tour
-    5. [x] The N Queens Problem - brute force, and 1 opt.
-    6. [ ] The N Queens Problem, Redux
+    5. [x] The N Queens Problem - brute force, opt1 and 2.
+    6. [ ] The N Queens Problem, Redux (opt 3 & beyond)
     7. [ ] The Tower of Hanoi

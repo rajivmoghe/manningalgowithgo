@@ -10,7 +10,7 @@ var num_calls int64 = 0
 
 func main() {
 
-	run_place_queens_1()
+	run_place_queens()
 }
 
 func run_factorial() {
@@ -106,14 +106,14 @@ func knights_tour() {
 	fmt.Printf("%d calls\n", num_calls)
 }
 
-func run_place_queens_1() {
-	const num_rows = 4
+func run_place_queens() {
+	const num_rows = 8
 	board := make_chess_board(num_rows)
 
 	start := time.Now()
-	//success := place_queens_1(board, num_rows, 0, 0)
-	success := place_queens_2(board, num_rows, 0, 0, 0)
-	//success := place_queens_3(board, num_rows, 0, 0, 0)
+	// success := place_queens_1(board, num_rows, 0, 0)
+	// success := place_queens_2(board, num_rows, 0, 0, 0)
+	success := place_queens_3(board, num_rows, 0, 0, 0)
 
 	elapsed := time.Since(start)
 	if success {
