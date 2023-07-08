@@ -197,7 +197,7 @@ func place_queens_2(board [][]string, num_rows, r, c, num_placed int) bool {
 
 // Add amount to the attack counts for this square.
 func adjust_attack_counts(num_attacking [][]int, num_rows, r, c, amount int) {
-	
+
 	// adjust rows and cols
 	for row := 0; row < num_rows; row++ {
 		num_attacking[row][c] += amount
@@ -267,10 +267,7 @@ func place_queens_3(board [][]string, num_rows, num_placed, r, c int) bool {
 		num_attacking[r] = make([]int, num_cols)
 	}
 	// Call do_place_queens_3.
-	result := do_place_queens_3(board, num_rows, num_placed, 0, 0, num_attacking)
-	fmt.Println(num_attacking)
-
-	return result
+	return do_place_queens_3(board, num_rows, num_placed, 0, 0, num_attacking)
 }
 
 // Try placing a queen at position [r][c].
@@ -303,6 +300,45 @@ func do_place_queens_3(board [][]string, num_rows, r, c, num_placed int, num_att
 		if do_place_queens_3(board, num_rows, next_r, next_c, num_placed+1, num_attacking) {
 			return true
 		}
+		board[r][c] = "."
+		adjust_attack_counts(num_attacking, num_rows, r, c, -1)
+	}
+
+	return false
+}
+
+// Try to place a queen in this column.
+// Return true if we find a legal board.
+// 12x12 board - Opt3: 451.8141 sec; Opt4: 0.0003 sec.
+func place_queens_4(board [][]string, num_rows, c int) bool {
+	num_cols := num_rows
+	num_attacking := make([][]int, num_rows)
+	for r := range board {
+		num_attacking[r] = make([]int, num_cols)
+	}
+	return do_place_queens_4(board, num_rows, c, num_attacking)
+}
+
+func do_place_queens_4(board [][]string, num_rows, c int, num_attacking [][]int) bool {
+	if c == num_rows {
+		return board_is_legal(board, num_rows)
+	}
+	if c < num_rows {
+		if !board_is_legal(board, num_rows) {
+			return false
+		}
+	}
+	for r := 0; r < num_rows; r++ {
+		if num_attacking[r][c] != 0 {
+			continue
+		}
+
+		board[r][c] = "Q"
+		adjust_attack_counts(num_attacking, num_rows, r, c, +1)
+		if do_place_queens_4(board, num_rows, c+1, num_attacking) {
+			return true
+		}
+
 		board[r][c] = "."
 		adjust_attack_counts(num_attacking, num_rows, r, c, -1)
 	}

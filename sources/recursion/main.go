@@ -107,13 +107,14 @@ func knights_tour() {
 }
 
 func run_place_queens() {
-	const num_rows = 8
+	const num_rows = 20
 	board := make_chess_board(num_rows)
 
 	start := time.Now()
 	// success := place_queens_1(board, num_rows, 0, 0)
 	// success := place_queens_2(board, num_rows, 0, 0, 0)
-	success := place_queens_3(board, num_rows, 0, 0, 0)
+	// success := place_queens_3(board, num_rows, 0, 0, 0)
+	success := place_queens_4(board, num_rows, 0)
 
 	elapsed := time.Since(start)
 	if success {
