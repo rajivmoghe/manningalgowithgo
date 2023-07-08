@@ -8,9 +8,11 @@ import (
 
 var num_calls int64 = 0
 
+const num_disks = 15
+
 func main() {
 
-	run_place_queens()
+	run_tower_hanoi()
 }
 
 func run_factorial() {
@@ -107,7 +109,7 @@ func knights_tour() {
 }
 
 func run_place_queens() {
-	const num_rows = 20
+	const num_rows = 26
 	board := make_chess_board(num_rows)
 
 	start := time.Now()
@@ -125,4 +127,30 @@ func run_place_queens() {
 		// dump_chess_board(board)
 	}
 	fmt.Printf("Elapsed: %f seconds\n", elapsed.Seconds())
+}
+
+func run_tower_hanoi() {
+
+	// Make three posts.
+	posts := [][]int{}
+
+	// Push the disks onto post 0 biggest first.
+	posts = append(posts, []int{})
+	for disk := num_disks; disk > 0; disk-- {
+		posts[0] = push(posts[0], disk)
+	}
+
+	// Make the other posts empty.
+	for p := 1; p < 3; p++ {
+		posts = append(posts, []int{})
+	}
+
+	// Draw the initial setup.
+	draw_posts(posts)
+
+	// Move the disks.
+	move_disks(posts, num_disks, 0, 2, 1)
+
+	fmt.Printf("Number of moves %d\n", num_calls)
+
 }

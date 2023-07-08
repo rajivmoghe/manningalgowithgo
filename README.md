@@ -22,4 +22,4 @@ Lessons to complete:
     4. [x] The Knights Tour
     5. [x] The N Queens Problem - brute force, opt1 and 2.
     6. [x] The N Queens Problem, Redux (opt 3 & columns)
-    7. [ ] The Tower of Hanoi
+    7. [x] The Tower of Hanoi
