@@ -19,7 +19,7 @@ Lessons to complete:
     1. [x] Factorials
     2. [x] Fibonacci Numbers
     3. [x] Dynamic Fibonacci Numbers
-    4. [ ] The Knights Tour
-    5. [ ] The N Queens Problem
+    4. [x] The Knights Tour
+    5. [x] The N Queens Problem
     6. [ ] The N Queens Problem, Redux
     7. [ ] The Tower of Hanoi
