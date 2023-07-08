@@ -10,7 +10,7 @@ var num_calls int64 = 0
 
 func main() {
 
-	knights_tour()
+	run_place_queens_1()
 }
 
 func run_factorial() {
@@ -89,7 +89,7 @@ func knights_tour() {
 			board := make_board(num_rows, num_cols)
 			board[st_row][st_col] = 0
 			start_iter := time.Now()
-			fmt.Printf("[%d, %d]\t",st_row,st_col)
+			fmt.Printf("[%d, %d]\t", st_row, st_col)
 			if find_tour(board, num_rows, num_cols, st_row, st_col, st_rec) {
 				elaps_iter := time.Since(start_iter)
 				fmt.Printf("Started from %0d,%0d. Solved in %7d ms.\n", st_row, st_col, elaps_iter.Milliseconds())
@@ -104,4 +104,24 @@ func knights_tour() {
 	// dump_board(board)
 	fmt.Printf("\nTotal %f seconds\n", elapsed.Seconds())
 	fmt.Printf("%d calls\n", num_calls)
+}
+
+func run_place_queens_1() {
+	const num_rows = 4
+	board := make_chess_board(num_rows)
+
+	start := time.Now()
+	//success := place_queens_1(board, num_rows, 0, 0)
+	success := place_queens_2(board, num_rows, 0, 0, 0)
+	//success := place_queens_3(board, num_rows, 0, 0, 0)
+
+	elapsed := time.Since(start)
+	if success {
+		fmt.Println("Success!")
+		dump_chess_board(board)
+	} else {
+		fmt.Println("No solution")
+		// dump_chess_board(board)
+	}
+	fmt.Printf("Elapsed: %f seconds\n", elapsed.Seconds())
 }
