@@ -1,48 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
-// djb2 hash function. See http://www.cse.yorku.ca/~oz/hash.html.
-func hash(value string) int {
-	hash := 5381
-	for _, ch := range value {
-		hash = ((hash << 5) + hash) + int(ch)
-	}
-	// Make sure the result is non-negative.
-	if hash < 0 {
-		hash = -hash
-	}
-	return hash
-}
-
-type Employee struct {
-	name  string
-	phone string
-}
-type ChainingHashTable struct {
-	num_buckets int
-	buckets     [][]*Employee
-}
-
-// Initialize a ChainingHashTable and return a pointer to it.
-func NewChainingHashTable(num_buckets int) *ChainingHashTable {
-	buckets := make([][]*Employee, num_buckets)
-	hashTable := &ChainingHashTable{num_buckets: num_buckets, buckets: buckets}
-	return hashTable
-}
-
-// Display the hash table's contents.
-func (hash_table *ChainingHashTable) dump() {
-	for i, elements := range hash_table.buckets {
-		fmt.Printf("bucket: %d\n", i)
-		for _, value := range elements {
-			fmt.Printf("\t%s: %s\n", value.name, value.phone)
-		}
-	}
-}
-
 // Find the bucket and Employee holding this key.
 // Return the bucket number and Employee number in the bucket.
 // If the key is not present, return the bucket number and -1.

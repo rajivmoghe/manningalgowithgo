@@ -25,7 +25,7 @@ Lessons to complete:
     7. [x] The Tower of Hanoi
 3. Lookups with Hash Tables
     1. [x] Chaining
-    2. [ ] Linear Probing
+    2. [x] Linear Probing
     3. [ ] Removing Items
     4. [ ] Quadratic Probing
     5. [ ] Double Hashing
