@@ -23,3 +23,9 @@ Lessons to complete:
     5. [x] The N Queens Problem - brute force, opt1 and 2.
     6. [x] The N Queens Problem, Redux (opt 3 & columns)
     7. [x] The Tower of Hanoi
+3. Lookups with Hash Tables
+    1. [x] Chaining
+    2. [ ] Linear Probing
+    3. [ ] Removing Items
+    4. [ ] Quadratic Probing
+    5. [ ] Double Hashing

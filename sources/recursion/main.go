@@ -8,7 +8,7 @@ import (
 
 var num_calls int64 = 0
 
-const num_disks = 15
+const num_disks = 6
 
 func main() {
 
