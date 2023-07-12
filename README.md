@@ -26,6 +26,6 @@ Lessons to complete:
 3. Lookups with Hash Tables
     1. [x] Chaining
     2. [x] Linear Probing
-    3. [ ] Removing Items
+    3. [x] Removing Items
     4. [ ] Quadratic Probing
     5. [ ] Double Hashing

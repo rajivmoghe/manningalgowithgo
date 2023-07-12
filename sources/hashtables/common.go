@@ -19,6 +19,7 @@ type Employee struct {
 	name  string
 	phone string
 }
+
 type ChainingHashTable struct {
 	num_buckets int
 	buckets     [][]*Employee
@@ -76,4 +77,117 @@ func (hash_table *LinearProbingHashTable) dump_concise() {
 		}
 	}
 	fmt.Println()
+}
+
+type Employee_D struct {
+	name    string
+	phone   string
+	deleted bool
+}
+
+type LinearProbingHashTable_D struct {
+	capacity  int
+	employees []*Employee_D
+}
+
+// Initialize a LinearProbingHashTable and return a pointer to it.
+func NewLinearProbingHashTable_D(capacity int) *LinearProbingHashTable_D {
+	return &LinearProbingHashTable_D{capacity: capacity, employees: make([]*Employee_D, capacity)}
+}
+
+// Display the hash table's contents.
+func (hash_table *LinearProbingHashTable_D) dump() {
+	for i, element := range hash_table.employees {
+		if element == nil {
+			fmt.Printf("%2d: ---\n", i)
+		} else if element.deleted {
+			fmt.Printf("%2d: xxx\n", i)
+		} else {
+			fmt.Printf("%2d: %15s\t%s\n", i, element.name, element.phone)
+		}
+
+	}
+}
+
+// Make a display showing whether each slice entry is nil.
+func (hash_table *LinearProbingHashTable_D) dump_concise() {
+	// Loop through the slice.
+	for i, employee := range hash_table.employees {
+		if employee == nil {
+			// This spot is empty.
+			fmt.Printf(".")
+		} else if employee.deleted {
+			fmt.Printf("x")
+		} else {
+			// Display this entry.
+			fmt.Printf("O")
+		}
+		if i%50 == 49 {
+			fmt.Println()
+		}
+	}
+	fmt.Println()
+}
+
+// Show this key's probe sequence.
+func (hash_table *LinearProbingHashTable_D) probe(name string) (int) {
+    // Hash the key.
+    hash := hash(name) % hash_table.capacity
+    fmt.Printf("Probing %s (%d)\n", name, hash)
+
+    // Keep track of a deleted spot if we find one.
+    deleted_index := -1
+
+    // Probe up to hash_table.capacity times.
+    for i := 0; i < hash_table.capacity; i++ {
+        index := (hash + i) % hash_table.capacity
+
+        fmt.Printf("    %d: ", index)
+        if hash_table.employees[index] == nil {
+            fmt.Printf("---\n")
+        } else if hash_table.employees[index].deleted {
+            fmt.Printf("xxx\n")
+        } else {
+            fmt.Printf("%s\n", hash_table.employees[index].name)
+        }
+
+        // If this spot is empty, the value isn't in the table.
+        if hash_table.employees[index] == nil {
+            // If we found a deleted spot, return its index.
+            if deleted_index >= 0 {
+                fmt.Printf("    Returning deleted index %d\n", deleted_index)
+                return deleted_index
+            }
+
+            // Return this index, which holds nil. 
+            fmt.Printf("    Returning nil index %d\n", index)
+            return index
+        }
+
+        // If this spot is deleted, remember where it is.
+        if hash_table.employees[index].deleted {
+            if deleted_index < 0 {
+                deleted_index = index
+            }
+        } else if hash_table.employees[index].name == name {
+            // If this cell holds the key, return its data.
+            fmt.Printf("    Returning found index %d\n", index)
+            return index
+        }
+
+        // Otherwise continue the loop.
+    }
+
+    // If we get here, then the key is not
+    // in the table and the table is full.
+
+    // If we found a deleted spot, return it.
+    if deleted_index >= 0 {
+        fmt.Printf("    Returning deleted index %d\n", deleted_index)
+        return deleted_index
+    }
+
+    // There's nowhere to put a new entry.    
+    fmt.Printf("    Table is full\n")
+    return -1
 }
