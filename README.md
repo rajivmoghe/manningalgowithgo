@@ -28,4 +28,4 @@ Lessons to complete:
     2. [x] Linear Probing
     3. [x] Removing Items
     4. [x] Quadratic Probing
-    5. [ ] Double Hashing
+    5. [x] Double Hashing
