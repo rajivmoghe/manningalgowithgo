@@ -2,10 +2,29 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
-	fastexp()
+	sieve()
+}
+
+func sieve() {
+	var max int
+	fmt.Printf("Max: ")
+	fmt.Scan(&max)
+
+	start := time.Now()
+	sieve := sieve_of_eratosthenes(max)
+	elapsed := time.Since(start)
+	fmt.Printf("Elapsed: %f seconds\n", elapsed.Seconds())
+
+	if max <= 1000 {
+		print_sieve(sieve)
+
+		primes := sieve_to_primes(sieve)
+		fmt.Println(primes)
+	}
 }
 
 func fastexp() {
