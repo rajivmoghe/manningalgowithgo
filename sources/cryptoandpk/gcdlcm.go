@@ -1,6 +1,6 @@
 package main
 
-func gcd(a, b int) int {
+func gcd(a, b int64) int64 {
 	if a < 0 {
 		a = -a
 	}
@@ -18,7 +18,7 @@ func gcd(a, b int) int {
 	}
 }
 
-func lcm(a, b int) (int, int) {
+func lcm(a, b int64) (int64, int64) {
 	if a < 0 {
 		a = -a
 	}
@@ -32,6 +32,6 @@ func lcm(a, b int) (int, int) {
 	return gcd, lcm
 }
 
-func gcdlcm(a, b int) (int, int) {
+func gcdlcm(a, b int64) (int64, int64) {
 	return lcm(a, b)
 }
