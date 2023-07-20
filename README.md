@@ -33,7 +33,7 @@ Lessons to complete:
     1. [x] Calculate GCD and LCM
     2. [x] Perform Fast Exponentiation
     3. [x] Build a Sieve of Eratosthenes
-    4. [ ] Build an Eulers Sieve
+    4. [x] Build an Eulers Sieve
     5. [ ] Factor Numbers
     6. [ ] Test for Primality
     7. [ ] Implement RSA

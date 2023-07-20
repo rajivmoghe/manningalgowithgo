@@ -15,7 +15,9 @@ func sieve() {
 	fmt.Scan(&max)
 
 	start := time.Now()
-	sieve := sieve_of_eratosthenes(max)
+	//sieve := sieve_of_eratosthenes(max)
+	sieve := eulers_sieve(max)
+
 	elapsed := time.Since(start)
 	fmt.Printf("Elapsed: %f seconds\n", elapsed.Seconds())
 
