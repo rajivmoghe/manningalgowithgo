@@ -23,9 +23,17 @@ Lessons to complete:
     5. [x] The N Queens Problem - brute force, opt1 and 2.
     6. [x] The N Queens Problem, Redux (opt 3 & columns)
     7. [x] The Tower of Hanoi
-3. Lookups with Hash Tables
+4. Lookups with Hash Tables
     1. [x] Chaining
     2. [x] Linear Probing
     3. [x] Removing Items
     4. [x] Quadratic Probing
     5. [x] Double Hashing
+5. Public Key Cryptography with RSA
+    1. [x] Calculate GCD and LCM
+    2. [ ] Perform Fast Exponentiation
+    3. [ ] Build a Sieve of Eratosthenes
+    4. [ ] Build an Eulers Sieve
+    5. [ ] Factor Numbers
+    6. [ ] Test for Primality
+    7. [ ] Implement RSA
