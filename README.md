@@ -32,7 +32,7 @@ Lessons to complete:
 5. Public Key Cryptography with RSA
     1. [x] Calculate GCD and LCM
     2. [x] Perform Fast Exponentiation
-    3. [ ] Build a Sieve of Eratosthenes
+    3. [x] Build a Sieve of Eratosthenes
     4. [ ] Build an Eulers Sieve
     5. [ ] Factor Numbers
     6. [ ] Test for Primality
